@@ -1,0 +1,24 @@
+{
+  "questions": [
+    {
+      "question": "Hello",
+      "answer": "Hi there!"
+    },
+    {
+      "question": "How are you?",
+      "answer": "Good. Thanks."
+    },
+    {
+      "question": "Hi",
+      "answer": "Hi"
+    },
+    {
+      "question": "Whats 1+1?",
+      "answer": "2"
+    },
+    {
+      "question": "Whos the president of Bangladesh???",
+      "answer": "Dr.Yunus"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+import google.generativeai as genai
+import streamlit as st
+import pyttsx3 as pie
+
+def s1():
+    st.title("About the creation of MysticAI.")
+    st.text("Hello. My name is Ruhaiba. I am the programmer of MysticAI (Nicknamed Misty).")
+    st.text("MysticAI was not entirely made by me. I must give credits to the API givers, Google, Gemini.")
+    st.text("Asking Misty's name will not do, as I do not have access to edit in her name.")
+    st.text("My insperation was ChatGPT, the all famous sassy, perfect AI whom I absolutely LOVE.")
+    st.text("I hope enjoy using this simple AI in your day-to-day tasks.")
+    st.text("Programmer, Ruhaiba A.")
+def s2():
+    inp=st.text_input("You: ", key="unique_input_key")
+    genai.configure(api_key="AIzaSyCtsiTdTMFGVRvT6XDAMprxZqmz2QAS1Ns")
+    model = genai.GenerativeModel("gemini-1.5-flash")
+    response = model.generate_content(inp)
+    st.text(" ")
+    xx="MysticAI: "
+    spill=response.text
+    xx+=spill
+    st.text(xx)
+    txt_speech=st.button("🔊 - Text-Speech button")
+    if txt_speech:
+        engine=pie.init()
+        engine.setProperty("rate", 150)
+        engine.setProperty("volume", 1)
+        engine.say(spill)
+        engine.runAndWait()
+        
+try:
+    st.title("MysticAI")
+
+    st.session_state = 0
+    x= st.sidebar.button("Chat")
+    y=st.sidebar.button("About")
+
+    if y:
+        st.session_state = 1
+        if st.session_state == 1:
+            s1()
+    if x:
+        st.session_state = 2
+        if st.session_state == 2:
+            s2()
+    if st.session_state == 0:
+        s2()
+except Exception as e:
+     print("HI")
